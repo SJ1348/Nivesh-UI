@@ -1,0 +1,16 @@
+{
+  "extends": "@repo/typescript-config/react-library.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "./src",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@repo/ui/*": ["./src/*"],
+      "@radix-ui/*": ["../../node_modules/@radix-ui/*"]
+    },
+    "typeRoots": ["./node_modules/@types", "../../node_modules/@types"]
+  },
+  "include": ["src"],
+  "exclude": ["dist"]
+}
