@@ -6,7 +6,7 @@ export * from "./shad/ui/avatar";
 export * from "./shad/ui/badge";
 export * from "./shad/ui/breadcrumb";
 export * from "./shad/ui/button";
-export * from "./shad/ui/calendar";
+// export * from "./shad/ui/calendar";
 export * from "./shad/ui/card";
 export * from "./shad/ui/carousel";
 export * from "./shad/ui/chart";
