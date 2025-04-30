@@ -7,6 +7,7 @@ import { useState, useRef, useEffect } from "react";
 import { Copy, Download, ArrowRight, ThumbsUp, ThumbsDown } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import Image from "next/image";
 
 interface Message {
   role: "agent" | "user"
@@ -111,10 +112,7 @@ function ChatInterface() {
     <div className="min-h-screen flex flex-col bg-blue-100/50">
       <div className="flex-1 flex flex-col items-center justify-center">
         <div className="w-full max-w-2xl mx-auto flex flex-col flex-1">
-          <div className="flex flex-col items-center pt-12 pb-6">
-            <div className="h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center mb-2">
-              <span className="text-white font-bold text-2xl">N</span>
-            </div>
+          <div className="flex flex-col items-center pt-12 pb-6">      
             <h1 className="text-2xl font-semibold text-center">Where shall we invest today?</h1>
             <p className="text-gray-600 text-sm text-center">Get a list of new stocks everyday at your finger tips.</p>
           </div>
@@ -127,8 +125,15 @@ function ChatInterface() {
                     className={cn("flex gap-2 max-w-full", message.role === "user" ? "justify-end" : "justify-start")}
                   >
                     {message.role === "agent" && (
-                      <div className="h-8 w-8 rounded-full bg-blue-500 flex-shrink-0 flex items-center justify-center text-white font-bold text-lg">
-                        N
+                      <div className="flex-shrink-0 w-[64px] h-[64px]">
+                        <Image
+                          src="/assets/nivesh-logo-small.png"
+                          alt="Nivesh Logo"
+                          width={192}
+                          height={192}
+                          className="scale-[2]"
+                          priority
+                        />
                       </div>
                     )}
                     <div className={cn("space-y-2 max-w-[80%]")}>
@@ -201,7 +206,7 @@ function ChatInterface() {
                       variant="outline"
                       size="sm"
                       className="rounded-full text-xs bg-white border-blue-200 text-blue-700 hover:bg-blue-50"
-                      onClick={() => setInput(`Give me stocks for that satisfy the ${label}.`)}
+                      onClick={() => setInput(`Give me stocks that satisfy the ${label}.`)}
                     >
                       {label}
                     </Button>
